@@ -11,7 +11,7 @@ print(random_float)
 #random number between 0 and 5
 print(random.random()*5)
 
-random_int=random.randint(0,1)
+random_int=random.randint(0,1)# include 1
 print(random_int)
 if(random_int==0):
     print("Heads")
