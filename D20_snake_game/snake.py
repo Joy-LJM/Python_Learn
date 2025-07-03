@@ -1,5 +1,5 @@
 
-from turtle import Turtle, Screen
+from turtle import Turtle
 
 STARTING_POSITION = [(0, 0), (-20, 0), (-40, 0)]
 MOVE_DISTANCE=20
@@ -25,7 +25,7 @@ class Snake:
         segment.goto(position)
         self.segment_list.append(segment)
     def extend_segment(self):
-        self.add_segment(self.segment_list[-1].position())
+        self.add_segment(self.segment_list[-1].position())# add to the last position
 
     def move(self):
         for seg_num in range(len(self.segment_list) - 1, 0, -1):  # range(start,stop,range) range=-1 : reverse the order
