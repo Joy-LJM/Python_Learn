@@ -26,7 +26,7 @@ for _ in range(word_length):
 while not end_of_game:
     print(f"******************{lives}/6 lives left******************")
     guess = input("Guess a letter: ").lower()
-    if(guess in already_guess):
+    if guess in already_guess:
         print(f"You already guess {guess}")
     else:
         already_guess.append(guess)

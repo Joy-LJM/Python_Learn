@@ -50,7 +50,7 @@ def calculator():
     res=operation_dictionary[operation](first_num,second_num)
     print(f"{first_num} {operation} {second_num} = {res}")
     continue_or_not=input(f"Type 'y' to continue calculating with {res}, or type 'n' to start a new calculation: ").lower()
-    if(continue_or_not=='y'):
+    if continue_or_not== 'y':
         first_num=res
     else:
         print("\n"*20)

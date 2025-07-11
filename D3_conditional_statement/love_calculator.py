@@ -16,9 +16,9 @@ count_love += combine_name.count("v")
 count_love += combine_name.count("e")
 
 love_score = int(f"{count_true}{count_love}")
-if (love_score < 10 or love_score > 90):
+if love_score < 10 or love_score > 90:
   print(f"your score is {love_score}, you go together like cock and mentos.")
-elif (love_score >= 40 and love_score <= 50):
+elif love_score >= 40 and love_score <= 50:
   print(f"your score is {love_score}, you are alright together.")
 else:
   print(f"your score is {love_score}")

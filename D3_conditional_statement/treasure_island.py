@@ -31,19 +31,19 @@ left_right = input(
     "You're at a cross road. Where do you want to go? Type 'left' or 'right'?\n"
 )
 
-if (left_right.lower() == "right"):
+if left_right.lower() == "right":
           print("Game over, you fell into a hole.")
 else:
           swim_wait = input(
               'You come to a lake. There is an island in the middle of the lake. Type "wait" to wait for a boat. Type "swim" to swim across\n'
           )
-          if (swim_wait.lower() == "swim"):
+          if swim_wait.lower() == "swim":
                     print("You're eaten by a crocodile, game over.")
           else:
                     door = input(
                         "you arrive at the island unharmed. There is a house with 3 doors. One red, one yellow and one blue. Which colour do you choose?\n"
                     )
-                    if (door.lower() == "yellow"):
+                    if door.lower() == "yellow":
                               print("You found the treasure, you win.")
                     else:
                               print("You enter a room of beasts, game over.")

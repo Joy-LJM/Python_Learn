@@ -15,13 +15,13 @@ while continue_bidding:
   should_continue=input("Are there any other bidders? Type 'Yes' or 'No': ").lower()
 
   bidders[name]=float(bid)
-  if(should_continue=='yes'):
+  if should_continue== 'yes':
     print("\n"*100)
 
   else:
     continue_bidding=False
 
-    key=max(bidders,key=bidders.get)
+    key=max(bidders,key=bidders.get) #{}.get用来从字典中按键取值
     print(f"The winner is {key} with a bid of ${ bidders[key]}")
     
     # method 2

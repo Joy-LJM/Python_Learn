@@ -86,7 +86,7 @@ while not game_over:
   print(f"******************{lives}/6 lives left******************")
   guess=input("Guess a letter:").lower()
   display=""
-  if(guess in correct_letters):
+  if guess in correct_letters:
         print(f"You already guess {guess}")
   for letter in chosen_word:
       # check current letter
@@ -103,7 +103,7 @@ while not game_over:
           display+="_"
   print(display)
 
-  if(guess not in chosen_word):
+  if guess not in chosen_word:
      print(f"The letter: {guess} is not in the word. You lost a lives")
      lives-=1
      if lives==0:

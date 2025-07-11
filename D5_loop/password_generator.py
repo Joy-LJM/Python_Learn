@@ -42,7 +42,7 @@ for number in range(0,nr_numbers):
   psw_list.append(random_number)
 
 # print(psw_list)
-random.shuffle(psw_list)#shuffle function will update original list
+random.shuffle(psw_list)#将序列 psw_list 随机排列到位。shuffle function will update an original list
 shuffle_psw=""
 for char in psw_list:
   shuffle_psw+=char

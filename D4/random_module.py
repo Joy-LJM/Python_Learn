@@ -13,7 +13,7 @@ print(random.random()*5)
 
 random_int=random.randint(0,1)# include 1
 print(random_int)
-if(random_int==0):
+if random_int==0:
     print("Heads")
 else:
     print("Tails")

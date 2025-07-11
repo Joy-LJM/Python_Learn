@@ -15,11 +15,11 @@ print("string"[::-3]) #print the string in reverse with a step of 3: gr
 
 print(round(8/3))#2.6666666666666665->3
 print(round(8/3,2))#2.6666666666666665->2.67
-print(8//3)#2 #integer/floor division
+print(8//3)#2 #integer/floor division 地板除法，表示向下取整，即返回不大于结果的最大整数
 print(type(8/3))#float
 print(type(8//3))#int
 
-#f string example 
+# f string example
 score=0
 isWinning=False
 print(f"my score is {score}, you are winning is {isWinning}")

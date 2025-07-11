@@ -8,7 +8,8 @@ class Fish(Animal):
     def __init__(self):
         super().__init__() # inherit from Animal class
     def breathe(self):
-        super().breathe()
+        print(self.num_eyes)
+        super().breathe() # call parent class's breathe method
         print("doing this underwater")
     def swim(self):
         print("moving in the water")
