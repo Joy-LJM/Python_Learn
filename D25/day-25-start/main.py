@@ -49,5 +49,17 @@ data_dict={
     "students":["Amy",'Jurin',"Chisa"],
     "scores":[90,88,100]
 }
-data=pandas.DataFrame(data_dict)
-data.to_csv("new_data.csv")
+# data=pandas.DataFrame(data_dict)
+# data.to_csv("new_data.csv")
+
+# count squirrel
+squirrel=pandas.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
+gray_squirrel_count=len(squirrel[squirrel["Primary Fur Color"]=="Gray"])
+cinnamon_squirrel_count=len(squirrel[squirrel["Primary Fur Color"]=="Cinnamon"])
+white_squirrel_count=len(squirrel[squirrel["Primary Fur Color"]=="White"])
+squirrel_dict={
+"Primary Fur Color":["Gray","Cinnamon","White"],
+"Count":[gray_squirrel_count,cinnamon_squirrel_count,white_squirrel_count]
+}
+squirrel_data=pandas.DataFrame(squirrel_dict)
+squirrel_data.to_csv("squirrel_data.csv")
