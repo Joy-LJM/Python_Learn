@@ -14,7 +14,6 @@ timer=None
 marks = ""
 # ---------------------------- TIMER RESET ------------------------------- #
 def reset_timer():
-
     global reps
     reps =0
     global marks
@@ -47,7 +46,7 @@ def count_down(count):
         min= math.floor(count/60)
         sec=count%60
         if sec<10:
-            sec=f"0{sec}"
+            sec=f"0{sec}" #dynamic typing: int->str
 
         canvas.itemconfig(timer_text,text=f"{min}:{sec}")
         global timer
