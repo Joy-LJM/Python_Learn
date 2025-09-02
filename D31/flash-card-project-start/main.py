@@ -6,26 +6,39 @@ BACKGROUND_COLOR = "#B1DDC6"
 FONT_NAME = "Ariel"
 
 # create a random French word
-data = pandas.read_csv("data/french_words.csv")
-to_learn = data.to_dict(orient="records") # change format into[{french:xx,english:xx}]
-current_english_word=""
+try:
+    data = pandas.read_csv("data/words_to_learn.csv")
+except FileNotFoundError:
+    origin_data=pandas.read_csv("data/french_words.csv")
+    to_learn = origin_data.to_dict(orient="records")
+else:
+    to_learn = data.to_dict(orient="records") # change format into[{french:xx,english:xx}]
 
+current_dict={}
+count=0
 def next_card():
     random_word = random.choice(to_learn)
     french_word = random_word["French"]
-    global current_english_word, timer
-    current_english_word=random_word["English"]
+    global current_dict, timer
+    current_dict=random_word
     canvas.itemconfig(card_word, text=french_word,fill="black")
     canvas.itemconfig(card_title, text="French",fill="black")
     canvas.itemconfig(card_image,image=front_card)
-
+    #clean previous timer
     window.after_cancel(timer)
     timer = window.after(3000, flip_card)
+
 
 def flip_card():
     canvas.itemconfig(card_image,image=back_card)
     canvas.itemconfig(card_title, text="English",fill="white")
-    canvas.itemconfig(card_word, text=current_english_word,fill="white")
+    canvas.itemconfig(card_word, text=current_dict["English"],fill="white")
+
+def is_known():
+    to_learn.remove(current_dict)
+    to_learn_data=pandas.DataFrame(to_learn)
+    to_learn_data.to_csv("data/words_to_learn.csv",index=False)
+    next_card()
 
 # create ui
 window = Tk()
@@ -45,12 +58,12 @@ card_title=canvas.create_text(400, 150, font=(FONT_NAME, 40, "italic"), text="")
 card_word=canvas.create_text(400, 263, font=(FONT_NAME, 60, "bold"), text="")
 
 wrong_image=PhotoImage(file="images/wrong.png")
-wrong_button=Button(image=wrong_image,highlightthickness=0,command=next_card)
-wrong_button.grid(column=0,row=1)
+unknown_button=Button(image=wrong_image, highlightthickness=0, command=next_card)
+unknown_button.grid(column=0, row=1)
 
 right_image=PhotoImage(file="images/right.png")
-right_button=Button(image=right_image,highlightthickness=0,command=next_card)
-right_button.grid(column=1,row=1)
+known_button=Button(image=right_image, highlightthickness=0, command=is_known)
+known_button.grid(column=1, row=1)
 
 next_card()
 
