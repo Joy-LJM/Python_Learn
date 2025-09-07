@@ -11,7 +11,6 @@ class QuizzInterface:
         self.window.title("Quizzler")
         self.window.config(padx=20,pady=20,bg=THEME_COLOR)
 
-
         self.canvas=Canvas(width=300,height=250,background="white")
         self.question_text=self.canvas.create_text(
             150,
@@ -54,7 +53,6 @@ class QuizzInterface:
         is_right=self.quiz.check_answer("False")
         self.give_feedback(is_right)
     def give_feedback(self, is_right):
-        print(is_right)
         if is_right:
             self.canvas.config(bg="green")
         else:
