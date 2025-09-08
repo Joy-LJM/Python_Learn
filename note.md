@@ -38,6 +38,11 @@
    new_dict={new_key:new_value for (key,value) in dict.items() if test}
    ```
 
-   
+
+8. in windows for PyCharm using Powershell checking environement variables:
+
+   ```
+   dir Env:
+   ```
 
    
