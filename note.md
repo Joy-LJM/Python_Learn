@@ -45,4 +45,26 @@
    dir Env:
    ```
 
+
+9. create virtual env to isolate dependency conflict between projects
+
+   ```
+   python -m venv venv
+   # 激活环境 (Mac/Linux)即可通过pip install -r requirements.txt命令安装txt里的依赖和指定版本
+   source venv/bin/activate
+   
+   # 激活环境 (Windows PowerShell)
+   venv\Scripts\activate
+   ```
+10. reverse array
+```python
+a = [10, 20, 30, 40, 50]
+for item in reversed(a):
+   print(item)
+
+a = [1, 2, 3, 4, 5]
+for item in a[::-1]:
+   print(item)
+
+```
    
