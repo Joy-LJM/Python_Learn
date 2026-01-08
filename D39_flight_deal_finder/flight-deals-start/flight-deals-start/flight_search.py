@@ -1,4 +1,7 @@
 import requests
+import os
+from datetime import datetime
+from dotenv import load_dotenv
 from data_manager import *
 
 AMADEUS_HOST_URL="https://test.api.amadeus.com/v1"
@@ -21,8 +24,9 @@ class FlightSearch:
             }
 
             res=requests.get(AMADEUS_HOST_URL+"/reference-data/locations/cities",params=parameters,headers=headers)
-            # city_data=res.json()["data"]
-            print(res)
+            res.raise_for_status()
+            city_data=res.json()["data"]
+            print(city_data)
             # write IATA code into sheety
 
             # if city_data["data"]:
