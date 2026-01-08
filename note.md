@@ -65,6 +65,10 @@ for item in reversed(a):
 a = [1, 2, 3, 4, 5]
 for item in a[::-1]:
    print(item)
+   
+s = "Python"
+for i in range(len(s) - 1, 0, -1):
+   print(s[i])
 
 ```
    
