@@ -7,6 +7,9 @@ from D19_high_order_function_and_turtle_race.high_order_function.hof import resu
 
 URL='https://www.billboard.com/charts/hot-100/'
 HEADER={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0"}
+REDIRECT_URI="http://example.com"
+CLIENT_ID="client_id"
+CLIENT_SECRET="client_secret"
 
 time = input("Which year do you want to travel to? Type the date in this format YYYY-MM-DD: ")
 print(time)
@@ -21,12 +24,11 @@ print(song_names)
 sp = spotipy.Spotify(
     auth_manager=SpotifyOAuth(
         scope="playlist-modify-private",
-        redirect_uri="http://example.com",
-        client_id='YOUR UNIQUE CLIENT ID',
-        client_secret='YOUR UNIQUE CLIENT SECRET',
+        redirect_uri=REDIRECT_URI,
+        client_id=CLIENT_ID,
+        client_secret=CLIENT_SECRET,
         show_dialog=True,
         cache_path="token.txt",
-        username='YOUR SPOTIFY DISPLAY NAME',
     )
 )
 user_id = sp.current_user()["id"]
@@ -44,6 +46,6 @@ for song in song_names:
 playlist_name = f"Billboard Hot 100 - {time}"
 description = "Top 100 songs on Billboard charts for the specified year."
 
-playlist=sp.user_playlist_create(user_id, playlist_name,description=description,public=True)
+playlist=sp.user_playlist_create(user=user_id, name=playlist_name,description=description,public=True)
 # Adding songs to playlist
 sp.playlist_add_items(playlist_id=playlist["id"],items=song_uris)
