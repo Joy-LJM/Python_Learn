@@ -1,6 +1,10 @@
 import requests
 import datetime as dt
 import smtplib
+import os
+from dotenv import load_dotenv
+# Load environment variables from .env file
+load_dotenv()
 
 STOCK_NAME = "TSLA"
 COMPANY_NAME = "Tesla Inc"
@@ -8,6 +12,9 @@ STOCK_API_KEY= "NRX152PHCWOPD7VT"
 NEWS_API_KEY="11c016deffc34b108a57469f82bf4f71"
 STOCK_ENDPOINT = "https://www.alphavantage.co/query"
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
+
+GMAIL=os.getenv("EMAIL_ADDRESS")
+APP_PSW=os.getenv("APP_PSW")
 
 # Get yesterday's closing stock price
 response=requests.get(f"{STOCK_ENDPOINT}?function=TIME_SERIES_DAILY&symbol={STOCK_NAME}&apikey={STOCK_API_KEY}")
@@ -40,8 +47,7 @@ if diff_percentage> 1:
     formatted_articles=[f"{STOCK_NAME}:{up_down}{diff_percentage}%\nHeadline:{article['title']}\nBrief:{article['description']}" for article in three_articles]
 
     #Send each article as a separate message via Twilio.
-    APP_PSW= "znzersqfjymthjwc"
-    GMAIL= "joy481339@gmail.com"
+
     with smtplib.SMTP("smtp.gmail.com", 587) as connection:
         connection.starttls()
         connection.login(GMAIL, APP_PSW)
