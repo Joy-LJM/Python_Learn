@@ -2,11 +2,18 @@ import requests
 import datetime as dt
 import smtplib
 import time
+# Add the os and dotenv modules
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 MY_LAG= 43.652382
 MY_LONG=-79.383736
-APP_PSW= "znzersqfjymthjwc"
-GMAIL= "joy481339@gmail.com"
+
+GMAIL=os.environ['GMAIL']
+APP_PSW=os.environ['APP_PSW']
 
 def is_iss_overhead():
     # api of International Space Station

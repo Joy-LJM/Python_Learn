@@ -2,9 +2,14 @@ import pandas
 import datetime as dt
 import smtplib
 import random
+import os
+from dotenv import load_dotenv
 
-APP_PSW= "znzersqfjymthjwc"
-GMAIL= "joy481339@gmail.com"
+# Load environment variables from .env file
+load_dotenv()
+
+GMAIL=os.getenv('GMAIL')
+APP_PSW=os.getenv('APP_PSW')
 
 time=dt.datetime.now()
 today_tuple=(time.month, time.day) #used as dict key

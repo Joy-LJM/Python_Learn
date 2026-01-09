@@ -1,9 +1,14 @@
+import os
 import smtplib
-
 # should open 2-step authentication
-app_psw="znzersqfjymthjwc"
-yahoo_email="joytestingpython@yahoo.com"
-gmail="joy481339@gmail.com"
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+gmail=os.getenv('gmail')
+yahoo_email=os.getenv('yahoo_email')
+app_psw=os.getenv('app_psw')
 
 # connection=smtplib.SMTP("smtp.gmail.com",587)
 # connection.starttls()
